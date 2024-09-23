@@ -1,0 +1,35 @@
+{{ define "content" }}
+    <h1>Unit Converter</h1>
+    <form action="/convert" method="POST">
+        <div class="form-group">
+            <label for="value">Enter Value:</label>
+            <input type="number" id="value" name="value" required>
+        </div>
+        <div class="form-group">
+            <label for="from_unit">From Unit:</label>
+            <select id="from_unit" name="from_unit">
+                <option value="meters">Meters</option>
+                <option value="kilometers">Kilometers</option>
+                <option value="grams">Grams</option>
+                <option value="kilograms">Kilograms</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="to_unit">To Unit:</label>
+            <select id="to_unit" name="to_unit">
+                <option value="meters">Meters</option>
+                <option value="kilometers">Kilometers</option>
+                <option value="grams">Grams</option>
+                <option value="kilograms">Kilograms</option>
+            </select>
+        </div>
+        <button type="submit">Convert</button>
+    </form>
+
+    {{ if .Result }}
+    <div class="result">
+        <h2>Converted Value: {{ .Result }}</h2>
+    </div>
+    {{ end }}
+{{ end }}
+
